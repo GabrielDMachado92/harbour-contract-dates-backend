@@ -35,7 +35,7 @@ def HelloWorld():
     
         pdfData = textract.process("/Users/gabrielmachado/Documents/Development/harbour-contract-dates-backend/contracts/" + str(fileName), encoding='utf-8', method='pdfminer')
     
-        matches = datefinder.find_dates(str(pdfData))
+        matches = datefinder.find_dates(str(pdfData), strict=True)
 
         
         for match in matches:

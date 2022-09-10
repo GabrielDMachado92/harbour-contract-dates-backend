@@ -3,14 +3,16 @@
 # Using python-dateutil()
 from dateutil import parser
 import datefinder
+import textract
 
-# initializing string
 
-# printing original string
-print("The original string is : " + str(test_str))
+pdfData = textract.process("/Users/gabrielmachado/Documents/Development/harbour-contract-dates-backend/contracts/ada_1pg.pdf" , encoding='utf-8', method='pdfminer')
 
-matches = datefinder.find_dates(test_str)
+
+
+matches = datefinder.find_dates(str(pdfData), strict=True)
+
+
 
 for match in matches:
     print(match)
-
